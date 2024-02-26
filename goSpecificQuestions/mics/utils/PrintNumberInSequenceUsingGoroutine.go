@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ func PrintAndIncrNum(ch chan int, wg *sync.WaitGroup) {
 	ch <- val + 1
 }
 
-func main() {
+func PrintNumberInSequence() {
 	wg := &sync.WaitGroup{}
 	ch := make(chan int, 1)
 	val := 50
