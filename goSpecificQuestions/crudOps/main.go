@@ -1,10 +1,13 @@
 package main
 
 import (
+	"algoDS/goSpecificQuestions/crudOps/handler"
+	"algoDS/goSpecificQuestions/crudOps/store"
 	"net/http"
 
 	"github.com/gorilla/mux"
 )
+
 func dummy(w http.ResponseWriter, r *http.Request) {
 
 }
@@ -14,24 +17,26 @@ func dummy(w http.ResponseWriter, r *http.Request) {
 // grpc
 // migration
 // db orm
-// pagination 
+// pagination
 // crud
 //caching   -> memcache and redis
-// data compression 
+// data compression
 // rate limiting
 
 func main() {
-	
-	
-	r := mux.NewRouter().PathPrefix("aakash")
+	r := mux.NewRouter()
+	// r.Handler(i.GetProducts())
 
-	r.Handle().Methods(http.MethodGet).
+	i := handler.NewInventoryHandler(store.NewInMemoryStore())
+	r.HandleFunc("/listProducts", i.GetProducts).Methods(http.MethodGet)
 
-	s:= http.Server{}
+	// http.Handle(/,r)
 
+	svr := &http.Server{
+		Handler: r,
+		Addr:    "127.0.0.1:8000",
+	}
 
-	
-
-	mux.Handle("/", http.HandlerFunc(dummy)).
+	svr.ListenAndServe()
 
 }
