@@ -2,7 +2,7 @@ package handler
 
 import "algoDS/goSpecificQuestions/crudOps/model"
 
-type Products struct {
+type ProductStocks struct {
 	model.Product
 	Locs []LocationProductCount `json:"locations"`
 }

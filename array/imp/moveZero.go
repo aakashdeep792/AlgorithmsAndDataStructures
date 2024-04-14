@@ -29,7 +29,7 @@ Follow up: Could you minimize the total number of operations done?
 
 */
 
-package main
+package array
 
 func moveZeroes(nums []int) {
 	moveNumberToEnd(nums, 0)

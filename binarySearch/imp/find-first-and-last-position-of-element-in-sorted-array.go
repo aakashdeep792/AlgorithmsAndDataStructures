@@ -28,6 +28,14 @@ func upperBound(nums []int, target int) int {
 		} else {
 			l = m + 1
 		}
+
+		// this will work too
+		// if nums[m] <= target{
+		//     l=m+1
+		// }else{
+		//     r = m -1
+		// }
+
 	}
 
 	if r >= 0 && r < len(nums) && nums[r] == target {
