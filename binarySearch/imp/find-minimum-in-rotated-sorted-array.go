@@ -47,7 +47,7 @@ func getMinSort(nums []int) int {
 	for l <= r {
 		m := (l + r) / 2
 
-		if nums[l] <= nums[m] { // left sorted or equal
+		if nums[l] <= nums[m] { // left sorted or equal (equal required for case like[2,1])
 			ans = min(ans, nums[l]) // store min element
 			l = m + 1               // check the right half
 		} else { // right sorted
