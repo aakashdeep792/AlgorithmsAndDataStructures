@@ -141,3 +141,7 @@ func (c *LRUCache) update(key, value any) {
 	c.items[kh].PushFront(it)
 
 }
+
+func setUp(){
+	
+}
