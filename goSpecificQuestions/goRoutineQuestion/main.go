@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
-	a := code.PrintNumber4(15)
+	// a := code.CheckPrime(1000) //code.PrintNumber4(15)
+	a := code.SortDriver()
 	fmt.Println(a)
 }
