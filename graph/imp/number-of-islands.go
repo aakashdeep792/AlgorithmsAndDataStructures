@@ -31,7 +31,7 @@ Output: 3
 
 */
 
-func dfs(grid [][]byte, r, c int) {
+func dfsUtil(grid [][]byte, r, c int) {
 	rows, cols := len(grid), len(grid[0])
 	if r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] != '1' {
 		return
@@ -39,20 +39,20 @@ func dfs(grid [][]byte, r, c int) {
 
 	grid[r][c] = '2'
 
-	dfs(grid, r, c-1)
-	dfs(grid, r, c+1)
-	dfs(grid, r-1, c)
-	dfs(grid, r+1, c)
+	dfsUtil(grid, r, c-1)
+	dfsUtil(grid, r, c+1)
+	dfsUtil(grid, r-1, c)
+	dfsUtil(grid, r+1, c)
 }
 
-func numIslands(grid [][]byte) int {
+func NumIslands(grid [][]byte) int {
 	rows, cols := len(grid), len(grid[0])
 	ans := 0
 	for r := 0; r < rows; r++ {
 		for c := 0; c < cols; c++ {
 			if grid[r][c] == '1' {
 				ans++
-				dfs(grid, r, c)
+				dfsUtil(grid, r, c)
 			}
 		}
 	}
